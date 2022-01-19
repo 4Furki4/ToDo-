@@ -4,20 +4,13 @@ namespace ToDo
     
         public class Board /* Yapılacak, yapılan ve yapılmış görev kartlarını liste yapısı ile içeren sınıfımız. Ayrıca bu kartları silebilen, 
                     yeni kartlar ekleyip, kartları 3 başlıkta listeleyebilen ve taşıyabilen metotları içeriyor.*/
-        {
+    {
         
         // Board 3 tane kolona sahiptir ve bunları Kart nesnelerini alan listede tutuyorum.
-        List<Kart> TODO= new List<Kart>(); 
-        List<Kart> INPROGRESS= new List<Kart>();
-        List<Kart> DONE= new List<Kart>();
-        public Board()
-        {  // 3 tane varsayılan kartımız.
-            TODO.Add(new Kart("Temizlik","Tuvaleti silmek", "Furkan",Kart.Buyukluk.XL));
-            DONE.Add(new Kart("Mutfak","Yemek yapmak", "Furkan",Kart.Buyukluk.M));
-            INPROGRESS.Add(new Kart("Alışveriş","Ekmek almak", "Esat",Kart.Buyukluk.XS));
-        }
         
-        void KartListele(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
+        
+        
+        public void KartListele(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
             {
         foreach (var item in TODO_LIST)
         {
@@ -44,8 +37,8 @@ namespace ToDo
             Console.WriteLine($"Büyüklük:{item.buyukluk}");
         }
             
-        }
-        void KartEkleme(List<Kart> TODO_List, Dictionary<int, string> Takım) //Kartları TODO listesine ekleyen metod. 
+            }
+        public void KartEkleme(List<Kart> TODO_List, Dictionary<int, string> Takım) //Kartları TODO listesine ekleyen metod. 
         //              todo'ya eklemek için ve takım üyelerine erişmek için mezkur parametreleri alıyor.
         {
         Console.WriteLine("Başlık giriniz                  :");
@@ -64,7 +57,9 @@ namespace ToDo
         {
             Console.WriteLine("Hatali giriş yaptınız");
         }
-        void KartSilme(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
+        
+        }
+        public void KartSilme(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
         {
             Console.WriteLine("Lütfen silmek istediğiniz kartın başlığını giriniz:");
             string input=Console.ReadLine();
@@ -109,10 +104,11 @@ namespace ToDo
                     Console.WriteLine("Geçersiz bir değer girdiniz.");
                 }
             }
-
-        }
             
-        void KartTasima(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
+
+        }    
+        
+        public void KartTasima(List<Kart> TODO_LIST, List<Kart> INRPOGRESS_LIST, List<Kart> DONE_LIST)
         {
             int tasima=0;
             Console.WriteLine("Lütfen taşımak istediğiniz kartın başlığını giriniz:");
@@ -137,12 +133,12 @@ namespace ToDo
                     }
                     else if (tasinacakYer==2)
                     {
-                        TODO_List.Remove(item);
+                        TODO_LIST.Remove(item);
                         INRPOGRESS_LIST.Add(item);
                     }
                     else if (tasinacakYer==3)
                     {
-                        TODO_List.Remove(item);
+                        TODO_LIST.Remove(item);
                         DONE_LIST.Add(item);
 
                     }
@@ -170,8 +166,8 @@ namespace ToDo
                     
                         if (tasinacakYer==1)
                         {
-                           INPROGRESS.Remove(item);
-                           TODO_List.Add(item);
+                           INRPOGRESS_LIST.Remove(item);
+                           TODO_LIST.Add(item);
                         }
                         else if (tasinacakYer==2)
                         {
@@ -209,7 +205,7 @@ namespace ToDo
                             if (tasinacakYer==1)
                             {
                                 DONE_LIST.Remove(item);
-                                TODO_List.Add(item);
+                                TODO_LIST.Add(item);
                             }else if (tasinacakYer==2)
                             {
                                 DONE_LIST.Remove(item);
@@ -242,8 +238,10 @@ namespace ToDo
 
             
             }
-            }
+
+    
     }
+
 }
 
     

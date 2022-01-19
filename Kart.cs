@@ -1,6 +1,6 @@
 namespace ToDo
 {
-       class Kart
+       public class Kart
 
     {
             public enum Buyukluk // Kart büyüklükleri için kullanılacak enum.
