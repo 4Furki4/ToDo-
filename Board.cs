@@ -45,10 +45,29 @@ namespace ToDo
         }
             
         }
-        void KartSilme(List<Kart> list)
+        void KartEkleme(List<Kart> TODO_List, Dictionary<int, string> Takım) //Kartları TODO listesine ekleyen metod. 
+        //              todo'ya eklemek için ve takım üyelerine erişmek için mezkur parametreleri alıyor.
         {
-        Console.WriteLine();
-
+        Console.WriteLine("Başlık giriniz                  :");
+        string input_baslik= Console.ReadLine();
+        Console.WriteLine("İçerik giriniz                  :");
+        string input_icerik= Console.ReadLine();
+        Console.WriteLine("Büyüklük seçiniz                : ");
+        int input_buyukluk= int.Parse(Console.ReadLine());
+        Console.WriteLine("Kişi seçiniz(ID)                : ");
+        int input_KisiID=int.Parse(Console.ReadLine());
+        if(Takım.ContainsKey(input_KisiID) && input_buyukluk>0 && input_buyukluk<5) // Anahtar eğer uyuşmazsa hata mesajı dönecek.
+        {
+            TODO_List.Add(new Kart(input_baslik,input_icerik,Takım[input_KisiID],(Kart.Buyukluk)input_buyukluk));
+        }
+        else
+        {
+            Console.WriteLine("Hatali giriş yaptınız");
+        }
+        void KartSilme()
+        {
+            
+        }
             
 
     }
