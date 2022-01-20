@@ -41,13 +41,13 @@ namespace ToDo
         public void KartEkleme(List<Kart> TODO_List, Dictionary<int, string> Takım) //Kartları TODO listesine ekleyen metod. 
         //              todo'ya eklemek için ve takım üyelerine erişmek için mezkur parametreleri alıyor.
         {
-        Console.WriteLine("Başlık giriniz                  :");
+        Console.Write("Başlık giriniz                  :");
         string input_baslik= Console.ReadLine();
-        Console.WriteLine("İçerik giriniz                  :");
+        Console.Write("İçerik giriniz                  :");
         string input_icerik= Console.ReadLine();
-        Console.WriteLine("Büyüklük seçiniz                : ");
+        Console.Write("Büyüklük seçiniz                : ");
         int input_buyukluk= int.Parse(Console.ReadLine());
-        Console.WriteLine("Kişi seçiniz(ID)                : ");
+        Console.Write("Kişi seçiniz(ID)                : ");
         int input_KisiID=int.Parse(Console.ReadLine());
         if(Takım.ContainsKey(input_KisiID) && input_buyukluk>0 && input_buyukluk<5) // Anahtar eğer uyuşmazsa hata mesajı dönecek.
         {
@@ -64,7 +64,7 @@ namespace ToDo
             Console.WriteLine("Lütfen silmek istediğiniz kartın başlığını giriniz:");
             string input=Console.ReadLine();
             int sayac=0;
-            foreach (var item in TODO_LIST)
+            foreach (var item in TODO_LIST.ToArray())
             {
                 if (item.Baslık==input)
                 {
@@ -72,7 +72,7 @@ namespace ToDo
                     sayac++;
                 }
             }
-            foreach (var item in INRPOGRESS_LIST)
+            foreach (var item in INRPOGRESS_LIST.ToArray())
             {
                 if (item.Baslık==input)
                 {
@@ -80,7 +80,7 @@ namespace ToDo
                     sayac++;
                 }
             }
-            foreach (var item in DONE_LIST)
+            foreach (var item in DONE_LIST.ToArray())
             {
                 if (item.Baslık==input)
                 {
@@ -113,7 +113,7 @@ namespace ToDo
             int tasima=0;
             Console.WriteLine("Lütfen taşımak istediğiniz kartın başlığını giriniz:");
             string input= Console.ReadLine();
-            foreach (var item in TODO_LIST)
+            foreach (var item in TODO_LIST.ToArray())
             {
                 if (item.Baslık==input)
                 {
@@ -150,7 +150,7 @@ namespace ToDo
             }
             if (tasima==0)
             {
-                foreach (var item in INRPOGRESS_LIST)
+                foreach (var item in INRPOGRESS_LIST.ToArray())
                 {
                     if (item.Baslık==input)
                     {
@@ -188,7 +188,7 @@ namespace ToDo
             }
             if (tasima==0)
                 {
-               foreach (var item in DONE_LIST)
+               foreach (var item in DONE_LIST.ToArray())
                 {
                     if (item.Baslık==input)
                     {
